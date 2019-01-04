@@ -1,0 +1,10 @@
+extends ./layouts/common.pug
+block content
+        h1 users
+        form(action="/users/search", method="get")
+            input(type="text", name="q")
+            button Search
+        ul
+            each user in users
+                li= user.name
+        a(href="/users") Users

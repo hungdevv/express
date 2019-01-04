@@ -1,0 +1,27 @@
+
+extends ./layouts/common.pug
+block content
+        h1 users
+            a(href="/users/create", class="btn btn-primary") Create
+        form(action="/users/search", method="get", class="container d-flex")
+            input(type="text", name="q", class="form-control")
+            button(class="btn btn-primary") Search
+        //- ul(class="list-group d-flex")
+        //-     each user in users 
+        //-         li(class="d-flex justify-content-center")
+        //-             span= user.name
+        //-             span &nbsp
+        //-             a(href='/users/' + user.id) View
+        //- div(class="d-flex justify-content-center")
+            //- a(href="/users/create", class="btn btn-primary") Create
+        table.table.container
+            tr
+                th Name
+                th Phone
+                th
+            each user in users
+                tr
+                    td= user.name
+                    td= user.phone
+                    td
+                        a(href='/users/' + user.id) View
