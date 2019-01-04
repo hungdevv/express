@@ -34,23 +34,7 @@ module.exports = {
         req.body.id = shortid.generate()
         // console.log(req.body)
         // users.push(req.body)
-        var errors = []
-        if(!req.body.name){
-            errors.push('Name is required')
-        }
-        if(!req.body.phone){
-            errors.push('Phone is required')
-        }
-        if(isNaN(req.body.phone)){
-            errors.push('Phone is not number')
-        }
-        if(errors.length){
-            res.render('create', {
-                errors: errors,
-                values: req.body
-            })
-            return
-        }
+        
         db.get("users").push(req.body).write()
         // db.get('users').push('1').write()
         res.redirect('/users')
