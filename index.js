@@ -3,6 +3,7 @@ const app = express()
 const port = 3000
 
 const userRoute = require('./routes/user.route')
+const authRoute = require('./routes/auth.route')
 
 const bodyParser = require('body-parser')
 // const shortid = require('shortid')
@@ -82,5 +83,6 @@ app.get('/home', (req, res) => res.render('home'))
 // })
 
 app.use('/users', userRoute)
+app.use('/auth', authRoute)
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
